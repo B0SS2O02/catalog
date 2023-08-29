@@ -1,0 +1,39 @@
+body{
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar {
+    background: red;
+    width: 200;
+    height: 100%;
+    position: relative;
+}
+
+.container {
+    background: blue;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+.header {
+    background: green;
+    width: 100%;
+    height: 60px;
+}
+
+.content {
+    background: silver;
+    width: 100%;
+    height: 100%;
+}
+
+.footer {
+    background: pink;
+    width: 100%;
+    height: 60px;
+}
