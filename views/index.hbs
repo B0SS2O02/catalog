@@ -1,14 +1,28 @@
 <html>
+
 <head>
-<link rel="stylesheet" href="public/style.css">
+  <link rel="stylesheet" href="/public/style.css">
+  <script src="/public/script.js"></script>
 </head>
 
 <body>
-  <div class="navbar"></div>
+  {{> navbar }}
   <div class="container">
-    <div class="header"></div>
-    <div class="content"></div>
-    <div class="footer"></div>
+    {{> header}}
+    <div class="content">
+      {{#if (eq type 'form')}}
+      {{form form}}
+      {{else if (eq type 'list')}}
+      {{list list }}
+      {{/if}}
+
+
+
+
+
+    </div>
+    {{> footer}}
+
   </div>
 </body>
 

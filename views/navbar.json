@@ -1,0 +1,10 @@
+{
+    "category": {
+        "link": "/admin/category",
+        "title": "Catgeory"
+    },
+    "language": {
+        "link": "/admin/language",
+        "title": "language"
+    }
+}

@@ -1,31 +1,24 @@
-require('dotenv').config()
-const sequelize = require('./database')
 const express = require('express')
-require('./handlebars_config')
+require('./handlebars')
 const app = express();
-
+const admin = require('../routes/admin')
+const sequelize = require('../models').sequelize
 app.set('view engine', 'hbs')
 
 app.use('/public', express.static('public'))
 
-app.use('/admin', (req, res) => {
-    res.send('admin')
-})
+app.use('/admin', admin)
 
 app.use('/api', (req, res) => {
     res.send('api')
 })
+sequelize.authenticate()
+    .then(() => {
+        app.listen(process.env.PORT, () => {
+            console.log(`Server started on : http://localhost:${process.env.PORT}`)
+        })
+    })
+    .catch(err => {
+        console.error('Unable to connect to the database',err);
+    })
 
-app.use('/test', (req, res) => {
-    const data = {
-        title: 'Пример Handlebars с Express',
-        message: 'Привет, мир!',
-        url: '1234'
-    };
-
-    res.render('index', data);
-})
-
-app.listen(4000, () => {
-    console.log('Server work on http://localhost:4000')
-})
